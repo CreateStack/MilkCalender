@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MilkCalender</string>
+    <string name="tab_text_1">Calender</string>
+    <string name="tab_text_2">Bill</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="amount_in_litres">Volume (in Litres)</string>
+    <string name="current_amount">Entered Volume</string>
+    <string name="save">Save</string>
+    <string name="enter_amount">Enter Volume</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="rate_rs_per_litre">Rate</string>
+    <string name="rate_hint">Rs. per Litre</string>
+    <string name="total_volume">Total Volume</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="calculate_bill">Calculate Bill</string>
+</resources>
