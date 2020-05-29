@@ -1,6 +1,7 @@
 package com.monday2105.milkcalender.ui.main;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class Bill extends Fragment {
 
     private float totalVol;
 
+    private static Context context;
+
     public Bill() {
     }
 
@@ -57,6 +60,7 @@ public class Bill extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        context = getContext();
         datePicker = Objects.requireNonNull(getView()).findViewById(R.id.simpleDatePicker);
         vRate = getView().findViewById(R.id.rate);
         vTotVol = getView().findViewById(R.id.totalvol);
@@ -140,8 +144,8 @@ public class Bill extends Fragment {
         });
     }
 
-    private void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager =(InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Activity.INPUT_METHOD_SERVICE);
+    static void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
@@ -152,5 +156,13 @@ public class Bill extends Fragment {
         }
         vTotVol.setText(String.format(Locale.ENGLISH,"%.2f Litres",totalVol));
         Log.i(TAG, "onViewCreated: "+totalVol);
+    }
+
+    public void setVolume(){
+        int month = datePicker.getMonth();
+        formatter = new DecimalFormat("00");
+        String fMonth = formatter.format(month);
+        ArrayList<String> data = sqlHelper.getMonthData(fMonth);
+        calTotVol(data);
     }
 }

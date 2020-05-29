@@ -16,6 +16,8 @@ import com.monday2105.milkcalender.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+    public Bill fBill;
+
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
     private final Context mContext;
@@ -30,7 +32,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         if (position == 1) {
-            return new Bill();
+            fBill = new Bill();
+            return fBill;
         }
         return new Calender();
     }

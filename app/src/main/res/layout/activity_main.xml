@@ -15,6 +15,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <TextView
@@ -23,15 +24,25 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
+            android:paddingStart="10sp"
+            android:paddingLeft="10sp"
+            android:paddingTop="0sp"
+            android:paddingEnd="0sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="0sp"
             android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textSize="16sp" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary" />
+            android:background="?attr/colorPrimary"
+            app:tabIndicatorColor="#9C27B0"
+            app:tabPaddingBottom="2sp"
+            app:tabPaddingTop="2sp"
+            app:tabTextAppearance="@style/CustomTabText" />
     </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
